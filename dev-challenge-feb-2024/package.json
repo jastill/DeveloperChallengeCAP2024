@@ -2,7 +2,7 @@
   "name": "dev-challenge-feb-2024",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "repository": "https://github.com/jastill/DeveloperChallengeCAP2024.git",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
