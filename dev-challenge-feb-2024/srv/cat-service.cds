@@ -1,4 +1,8 @@
 using { sap.capire.bookshop as my } from '../db/schema';
+@protocol: [
+  'odata-v4',
+  'graphql'
+]
 service CatalogService {
 
   /** For displaying lists of Books */

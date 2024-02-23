@@ -4,22 +4,35 @@
   "description": "A simple CAP project.",
   "repository": "https://github.com/jastill/DeveloperChallengeCAP2024.git",
   "license": "UNLICENSED",
+  "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.12.3",
+    "@cap-js/graphql": "^0.10.0",
     "@sap/cds": "^7",
-    "express": "^4"
+    "express": "^4",
+    "glob": "^10.3.10",
+    "upath": "^2.0.1"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/cds-dk": "^7"
   },
-  "cds" : {
-    "cov2ap" : {
-      "plugin" : true,
-      "path" :"devchallenge/v2"
+  "cds": {
+    "protocols": {
+      "graphql": {
+        "path": "/graphql",
+        "impl": "@cap-js/graphql"
       }
     },
+    "cov2ap": {
+      "plugin": true,
+      "path": "devchallenge/v2"
+    }
+  },
   "scripts": {
     "start": "cds-serve"
   }
