@@ -1,21 +1,26 @@
 {
-    "name": "Developer Challenge 2024 CAP",
-    "build": {
-      "dockerfile": "Dockerfile",
-      "args": { "VARIANT": "20" }
-    },
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "sapse.vscode-cds",
-          "dbaeumer.vscode-eslint",
-          "humao.rest-client",
-      "qwtel.sqlite-viewer",
-          "mechatroner.rainbow-csv",
-          "sapse.sap-ux-fiori-tools-extension-pack"
-        ]
-      }
-    },
-    "forwardPorts": [ 4004 ],
-    "remoteUser": "node"
-  }
+  "name": "Developer Challenge 2024 CAP",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "20"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "sapse.vscode-cds",
+        "dbaeumer.vscode-eslint",
+        "humao.rest-client",
+        "qwtel.sqlite-viewer",
+        "ms-azuretools.vscode-docker",
+        "mechatroner.rainbow-csv",
+        "sapse.sap-ux-fiori-tools-extension-pack"
+      ]
+    }
+  },
+  "forwardPorts": [
+    4004
+  ],
+  "remoteUser": "node"
+}
