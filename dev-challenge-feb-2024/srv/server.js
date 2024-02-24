@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url'
 import upath from 'upath'
 import { glob } from 'glob'
 import express from 'express'
+import { userInfo } from 'os'
 
 // @ts-ignore
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
@@ -41,9 +42,9 @@ function addLinkToGraphQl(service) {
   const provider = (entity) => {
     if (entity) return // avoid link on entity level, looks too messy
     
-    // Check for the protocols existing. Not sure if this will be present for shortcut @graphql
-    if (!service.definition["@protocol"]) return
-    if (service.definition["@protocol"].includes('graphql') ) return { href: 'graphql', name: 'GraphQL', title: 'Show in GraphQL' }
+    // Check for a graphql endpoint
+    if (service.endpoints.some((endpoint)=>endpoint.kind === 'graphql'))
+      return { href: 'graphql', name: 'GraphQL', title: 'Show in GraphQL' }
     return 
   }
   // Needs @sap/cds >= 4.4.0
