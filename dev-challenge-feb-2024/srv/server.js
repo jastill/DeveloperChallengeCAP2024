@@ -1,4 +1,4 @@
-// @ts-check
+// Use as a module, import instead of require
 import cds from '@sap/cds'
 import * as path from 'path'
 import { existsSync as fileExists } from 'fs'
@@ -33,10 +33,17 @@ cds
     })
   })
 
+/**
+ * Add the link to the GraphQl Playground to the service
+ * @param {} service 
+ */
 function addLinkToGraphQl(service) {
   const provider = (entity) => {
     if (entity) return // avoid link on entity level, looks too messy
-    if (service.name === 'CatalogService') return { href: 'graphql', name: 'GraphQL', title: 'Show in GraphQL' }
+    
+    // Check for the protocols existing. Not sure if this will be present for shortcut @graphql
+    if (!service.definition["@protocol"]) return
+    if (service.definition["@protocol"].includes('graphql') ) return { href: 'graphql', name: 'GraphQL', title: 'Show in GraphQL' }
     return 
   }
   // Needs @sap/cds >= 4.4.0
